@@ -5,12 +5,15 @@ Text files have names containing the phrase 'result'. Template files have names 
 
 Run with the following command:
 
+```
 python parse.py <template> <text>
+```
 
 Here <template> refers to a template file used for parsing and <text> refers to a text file to be parsed.
 The output is a list of lists. The first list contains the column headers.
 
 Example command:
 
+```
 python parse.py examples/template examples/result
-
+```
