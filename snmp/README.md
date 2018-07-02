@@ -1,6 +1,6 @@
-====
+----
 snmp
-====
+----
 
 
 The file snmp.py  contains code implementing snmp get, set and get_next commands.

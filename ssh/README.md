@@ -1,6 +1,6 @@
-===
+---
 ssh
-===
+---
 
 The file ssh.py in this directory connects to a remote host, runs a given command on that system and returns a result parsed according to a template and then converted to JSON.
 

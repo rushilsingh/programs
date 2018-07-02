@@ -1,6 +1,6 @@
-======
+------
 jinja2
-======
+------
 
 This directory serves as an environment for testing Jinja2 templates.
 
