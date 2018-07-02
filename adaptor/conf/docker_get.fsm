@@ -1,0 +1,12 @@
+Value Id ([a-z0-9]+)
+Value Image (\S+)
+Value Name (\S+)
+#Value Name ([a-zA-Z0-9_.-]+)
+
+Start
+  ^\s+"Id":\s+"${Id}",
+  ^\s+"Image":\s+"${Image}", 
+  ^\s{4}"Name":\s+"/${Name}", -> Record
+
+EOF
+

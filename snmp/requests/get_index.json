@@ -1,0 +1,9 @@
+{
+
+   "version": 2,
+   "community": "public",
+   "operation": "get",
+   "variables": ["ifIndex.5"]
+
+
+}

@@ -1,0 +1,9 @@
+{
+
+   "version": 2,
+   "community": "public",
+   "operation": "get_next",
+   "variables": ["invalid_tabular"]
+
+
+}

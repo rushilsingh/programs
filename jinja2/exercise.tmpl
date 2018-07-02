@@ -1,0 +1,8 @@
+{% for key, value in properties.iteritems() %}
+
+    The key is {{key}} and the value is {{value}} {% if not loop.last %},{% else %}.{% endif %}
+
+{% endfor %}
+
+
+{{ True | to_json }}

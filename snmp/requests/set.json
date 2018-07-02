@@ -1,0 +1,9 @@
+{
+
+   "version": 2,
+   "community": "public",
+   "operation": "set",
+   "variables": {"sysDescr":"NewDescription", "sysName":"NewName"}
+
+
+}

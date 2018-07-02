@@ -1,0 +1,9 @@
+Value Name (\S+)
+Value Kernel (\d+\.\d+\.\d+-\d+-\S+)
+Value Architecture ([ix]\d+_?\d+)
+
+Start
+  ^\S+\s${Name}\s${Kernel}\s#\S+\s\S+\s[A-Z][a-z]+\s[A-Z][a-z]+\s\d+\s\d+:\d+:\d+\s\S+\s\d+\s${Architecture}.* -> Record
+
+EOF
+

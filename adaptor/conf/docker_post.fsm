@@ -1,0 +1,7 @@
+Value Container_Id ([a-z0-9]+)
+
+Start
+  ^${Container_Id}.* -> Record
+
+EOF
+
