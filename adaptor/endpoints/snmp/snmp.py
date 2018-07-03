@@ -29,7 +29,13 @@ types = {
     "ObjectName": ObjectName,
     "Unsigned32": Unsigned32
 }
+        if self.version == 1:
+            self.apiVersion = api.protoModules[api.protoVersion1]
+        elif self.version == 2:
+            self.apiVersion = api.protoModules[api.protoVersion2c]
 
+
+version_mapping = {1:api.protoModules[api.protoVersion1] , 2:api.protoModules[api.protoVersion2c}
 
 GET = 1
 GET_NEXT = 2
@@ -141,16 +147,11 @@ class SNMP(Protocol_Handler):
 
         self.readCommunity, self.writeCommunity = self.credentials.split(":")
 
-        if endpoint.port:
-            self.target = (endpoint.ip, endpoint.port)
-        else:
-            self.target = (endpoint.ip, 161)
+        endpoint.port = endpoint.port if endpoint.port else 161
+        self.target = (endpoint.ip, endpoint.port)
 
-        if self.version == 1:
-            self.apiVersion = api.protoModules[api.protoVersion1]
-        elif self.version == 2:
-            self.apiVersion = api.protoModules[api.protoVersion2c]
-        else:
+        self.apiVersion = version_mapping.get(self.version)
+        if not self.apiVersion:
             raise Exception, "Bad request: Version not supported"
 
         self.transportObj = CustomUDPTransport()
@@ -171,6 +172,7 @@ class SNMP(Protocol_Handler):
             binds = oids
         else:
             raise Exception, "Bad request: Command not recognized"
+
         self.apiVersion.apiPDU.setDefaults(reqPDU)
         self.apiVersion.apiPDU.setVarBinds(reqPDU, binds)
 
@@ -225,7 +227,6 @@ class SNMP(Protocol_Handler):
                             err = Exception("Not found: EndOfMibView")
                         else:
                             data.append((oid, val))
-
         if err:
             d.errback(err)
         else:
