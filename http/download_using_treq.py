@@ -7,7 +7,6 @@ FNAME = "downloaded"
 
 
 def download_file(reactor, url, destination_filename):
-
     print "START TIME:", time.ctime()
     destination = open(destination_filename, 'wb')
     d = treq.get(url)
@@ -18,16 +17,12 @@ def download_file(reactor, url, destination_filename):
     return d
 
 def end(_):
-    
     print "END TIME:", time.ctime()
-
     reactor.stop()
 
 
 def main():
-
     reactor.callWhenRunning(download_file, reactor, URL, FNAME)
-
     reactor.run()
 
 if __name__ == '__main__':
