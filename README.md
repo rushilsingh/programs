@@ -22,4 +22,11 @@ Description:
 
 A collecion of programs dealing with various protocols and utilities.
 
+Note:
+=====
+
+I wrote these as practice/training for my work projects.
+
+I am not able to publicly share any of my work projects because those are not my intellectual property.
+
 
