@@ -1,7 +1,7 @@
 """    
 {
     "ThreadName": [func, (args), {kwargs}],
-    "AnotherThread": [otherfunc, (otherargs), {other_kw}
+    "AnotherThread": [otherfunc, (otherargs), {other_kw}]
 }
 """
 from custom_thread import CustomThread
