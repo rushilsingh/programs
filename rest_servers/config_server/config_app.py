@@ -27,7 +27,7 @@ from flask import abort
 
 
 @app.route('/configs/<string:feature>', methods=['GET'])
-def get_task(feature):
+def get_config(feature):
 
     if feature != "sysconfig":
         abort(404)
