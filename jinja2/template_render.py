@@ -1,17 +1,17 @@
-# Load the jinja library's namespace into the current module.
 import jinja2
 import json
 
-# In this case, we will load templates off the filesystem.
-# This means we must construct a FileSystemLoader object.
-# 
+# We load templates off the filesystem.
+# For thsi, we construct a FileSystemLoader object.
+
 # The search path can be used to make finding templates by
-#   relative paths much easier.  In this case, we are using
-#   absolute paths and thus set it to the filesystem root.
+# relative paths easier.  
+
 templateLoader = jinja2.FileSystemLoader( searchpath="/" )
 
 # An environment provides the data necessary to read and
-#   parse our templates.  We pass in the loader object here.
+# parse our templates.  We pass in the loader object here.
+
 templateEnv = jinja2.Environment( loader=templateLoader )
 
 def to_json(value, **kw):
