@@ -9,20 +9,25 @@ from adaptor.protocol_handler import Protocol_Handler
 CONF = "./conf/ssh.conf"
 
 
+sys_config_mapping = {
+    "Name": {},
+    "Description": {
+        "x86_64": "64 bit system running",
+        "i686": "32 bit system running"
+    },
+
+
+}i
+
+
 def sysconfig_get_parse(data):  # Data is a dictionary
     """ Parsing specific to sysconfig get operation"""
 
     parsed = {}
     data = data[0]  # For sysconfig, we know list has one element
 
-    parsed['Name'] = data['Name']
-    if data['Architecture'] == 'x86_64':
-        parsed["Description"] = "64 bit system running "
-    elif data['Architecture'] == 'i686':
-        parsed["Description"] = "32 bit system running "
-    else:
-        parsed["Description"] = "Unknown processor running "
-    parsed["Description"] += data["Kernel"]
+    parsed['Name'] = sys_config_mapping["Name"].get(data['Name'], data['Name'])
+    parsed['Description'] = sys_config_mapping["Description"].get(data['Architecture'], "Unknown processor running") + data["Kernel"]
 
     # Put dictionary in list to be consistent with other data sent to upper layer
     parsed = [parsed]
@@ -35,18 +40,14 @@ specific_parsers = {
     "sysconfig_get": sysconfig_get_parse
 }
 
-
 class SSH(Protocol_Handler):
 
     def __init__(self, endpoint):
-        """ Initialize SSH object with various attributes. 
-            Create shell object with some of these attributes and attach it to SSH object. 
+        """ Initialize SSH object with various attributes.
+            Create shell object with some of these attributes and attach it to SSH object.
         """
         self.ip = endpoint.ip
-        if endpoint.port:
-            self.port = endpoint.port
-        else:
-            self.port = 22
+        self.port = endpoint.port if endpoint.port else 22
         self.credentials = endpoint.cred
         self.user, self.password = self.credentials.split(":")
         self.version = int(endpoint.version)
@@ -60,10 +61,7 @@ class SSH(Protocol_Handler):
         """ Do feature and operation specific parsing if specific parser is available """
 
         parser = specific_parsers.get(parser_name, None)
-        if parser:
-            return parser(response)
-        else:
-            return response
+        return parser(response) if parser else response
 
     def general_parse(self, text, fsm):
         """ Parse text according to fsm and convert to list of dictionaries
@@ -159,7 +157,7 @@ class SSH(Protocol_Handler):
             else:
                 error = "Internal server error: " + error
             return error
-        
+
         result = result.output
         result = self.general_parse(result, fsm)
 
