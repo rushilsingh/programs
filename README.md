@@ -27,6 +27,6 @@ Note:
 
 I wrote these as practice/training for my work projects.
 
-I am not able to publicly share any of my work projects because those are not my intellectual property.
+I am not able to publicly share any of my work projects because those are not my intellectual property and are restrictively licensed.
 
 
