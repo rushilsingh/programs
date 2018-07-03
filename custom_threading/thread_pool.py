@@ -34,8 +34,8 @@ mappings_error = {
 }
 
 
-class Pool(object):
-    """ Pool object manages a group of threads """
+class ThreadPool(object):
+    """ ThreadPool object manages a group of threads """
 
     def __init__(self, func_bind, number=10, *args, **kwargs):
         """ Either dictionary or function is passed as func_bind.
