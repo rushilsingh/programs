@@ -167,12 +167,8 @@ class SSH(Protocol_Handler):
         parser_name = feature_name + "_" + operation
         result = self.specific_parse(result, parser_name)
 
-        # Construct response
-        response = {}
-        response['version'] = self.version
-        response['credentials'] = self.credentials
-        response['properties'] = result
-        return response
+        # Return response
+        return {"version": self.version, "credentials": self.credentials, "properties": result}
 
     def get(self, feature_name, *args):
         return self.send(feature_name, "get", *args)
