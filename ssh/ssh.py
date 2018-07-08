@@ -14,13 +14,9 @@ class SSH(object):
     def parse(self, text, template, error):
         """ Parse text according to template and then convert to json """
 
-        response = {}
         if error:
-            response["error"] = text
-            response["response"] =  None
-            return response
-
-        response["error"] = None
+            return {"error": text, "response": None}
+        response = {"error": None}
 
         with open(template) as f:
             parser = textfsm.TextFSM(f)
