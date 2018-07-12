@@ -11,5 +11,5 @@ clean:
 
 prepare-venv:
 	virtualenv $(VENV) --no-pip
-	$(VENV)/bin/easy_install pip==9.0.1
+	$(VENV)/bin/easy_install pip==10.0.1
 	$(PIP) install -r requirements.txt
