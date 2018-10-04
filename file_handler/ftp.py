@@ -12,7 +12,7 @@ class FTP(object):
     @defer.inlineCallbacks
     def get(cls, user, password, host, port, from_path):
         status = None
-        
+
         try:
             #Set default port
             if port is None:
@@ -29,7 +29,7 @@ class FTP(object):
                     if not r[0]:
                         status = "Error while retrieving file from FTP {}@{}:{}".format(user, host, port)
                         break
-           
+
         except Exception as e:
             status = "Error while retrieving file from FTP {}@{}:{} due to {}".format(user, host, port, e.message)
         finally:
