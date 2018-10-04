@@ -5,7 +5,7 @@ import time
 
 
 SUPPORTED_PROTOCOLS = {
-    "sftp": SFTP, 
+    "sftp": SFTP,
     "ftp": FTP
 }
 
@@ -25,7 +25,7 @@ class FileHandler(object):
 
         status = None
         proto_name, url = self.url.split("://", 1)
-        
+
         #Validate protocol
         protocol = SUPPORTED_PROTOCOLS.get(proto_name, None)
 
