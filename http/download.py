@@ -29,7 +29,6 @@ def download(url):
 
     try:
         remote_resource = urllib2.urlopen(url)
-                
         with open(FNAME , "wb") as f:
 
             while True:
@@ -44,7 +43,6 @@ def download(url):
     else:
         response = (True, None)
     d.callback(response)
-    
     return d
 
 reactor.callWhenRunning(get_file, "http://localhost:8888/files/")
