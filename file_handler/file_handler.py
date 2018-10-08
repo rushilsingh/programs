@@ -2,7 +2,7 @@ from sftp import SFTP
 from ftp import FTP
 from twisted.internet import reactor, defer
 import time
-
+from sys import argv
 
 SUPPORTED_PROTOCOLS = {
     "sftp": SFTP,
@@ -54,6 +54,6 @@ class FileHandler(object):
 
 
 if __name__ == '__main__':
-    fh = FileHandler("sftp://username:password@localhost/Downloads/test.txt")
+    fh = FileHandler(argv[1])
     reactor.callWhenRunning(fh.get)
     reactor.run()
