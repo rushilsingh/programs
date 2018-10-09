@@ -54,18 +54,11 @@ def transfer(client):
     return d
 
 
-def main():
-    startLogging(stdout)
+class SFTP(object):
 
-    user = 'username'
-    host = 'localhost'
-    port = 22
-    d = sftp(user, host, port)
-    d.addCallback(transfer)
-    d.addErrback(err, "Problem with SFTP transfer")
-    d.addCallback(lambda ignored: reactor.stop())
-    reactor.run()
-
-
-if __name__ == '__main__':
-    main()
+    @classmethod
+    def get(cls, user, password, host, port=22, from_path=""):
+        d = sftp(user, host, port)
+        d.addCallback(transfer)
+        d.addErrback(err, "Problem with SFTP transfer")
+        d.addCallback(lambda ignored: reactor.stop())
