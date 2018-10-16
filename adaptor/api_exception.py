@@ -21,7 +21,7 @@ class APIException(Exception):
     def _get_code(self, message):
         """ Assign error code based on error message """
         error_type = message.split(":")[0].lower()
-        
+
         code = errors.get(error_type, 500)
         return code
 

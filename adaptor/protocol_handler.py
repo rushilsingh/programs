@@ -15,7 +15,7 @@ class Protocol_Handler:
     @abstractmethod
     def put(self, feature_name, *args):
         pass
-    
+
     @abstractmethod
     def delete(self, feature_name, *args):
         pass

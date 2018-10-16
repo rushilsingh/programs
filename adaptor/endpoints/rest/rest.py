@@ -37,7 +37,7 @@ class REST(Protocol_Handler):
 
             result = requests.get(path)
             result = result.json()
-            
+
         except Exception, e:
             return "Internal Server Error: "+e.message
 

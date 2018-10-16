@@ -57,7 +57,7 @@ class APIHandler(cyclone.web.RequestHandler):
         self.finish()
 
     def get_protocol(self, ip):
-        """ Create endpoint from arguments in URI. Validate endpoint. 
+        """ Create endpoint from arguments in URI. Validate endpoint.
             Create protocol object from endpoint. Return errors as string
         """
 

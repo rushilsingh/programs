@@ -7,11 +7,11 @@ from adaptor.endpoint import Endpoint
 class Endpoint_Tests(unittest.TestCase):
 
     def test_endpoint_creation(self):
-        
+
         try:
             ep = Endpoint("172.23.106.217", 22, "ssh", "username:password", 1)
         except:
-            self.fail("Failed to instantiate endpoint")    
+            self.fail("Failed to instantiate endpoint")
 
 
 def main():

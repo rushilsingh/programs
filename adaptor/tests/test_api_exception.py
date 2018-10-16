@@ -9,7 +9,7 @@ from adaptor.api_exception import APIException
 class APIException_Tests(unittest.TestCase):
 
     def test_known_error(self):
-        
+
         message = "Not found: noSuchName"
         e  = APIException(message)
 
@@ -17,7 +17,7 @@ class APIException_Tests(unittest.TestCase):
         self.assertEquals(e.code, 404)
 
     def test_unclassified_error(self):
-        
+
         message = "Internal server error: Unclassified Error Message (unclassified error)"
         e = APIException(message)
 

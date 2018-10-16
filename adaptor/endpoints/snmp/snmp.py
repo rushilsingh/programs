@@ -105,8 +105,8 @@ def args_from_feature(feature_name, operation):
 
 
 def check_for_errors(arguments, operation):
-    """ Check if arguments are valid for given operation 
-        Raise Exception if any argument is invalid, else return 
+    """ Check if arguments are valid for given operation
+        Raise Exception if any argument is invalid, else return
     """
 
     if type(arguments[0]) is tuple:
