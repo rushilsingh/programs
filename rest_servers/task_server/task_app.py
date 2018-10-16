@@ -72,7 +72,7 @@ def create_task():
     if not len(tasks):
         task = {
                    'id':"1234",
-                   'title': request.json['title'], 
+                   'title': request.json['title'],
                    'description': request.json.get('description', ""),
                    'done': request.json.get('done', False),
                    'importance': request.json.get('importance', 'low'),
@@ -89,11 +89,11 @@ def create_task():
                    'importance': request.json.get('importance', 'low'),
                    'location': request.json.get('location', 'everywhere'),
                    'person': request.json.get('person', 'rushil')
- 
+
                }
     tasks.append(task)
     return jsonify(task), 201
-         
+
 @app.route('/tasks/<string:task_id>', methods = ['PUT'])
 def update_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
@@ -116,7 +116,7 @@ def delete_task(task_id):
 
 @app.route('/tasks', methods = ['DELETE'])
 def delete_all():
-    while(len(tasks)): tasks.pop() 
+    while(len(tasks)): tasks.pop()
     return jsonify({'result':True})
 
 
