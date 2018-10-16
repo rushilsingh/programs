@@ -114,7 +114,7 @@ def get_arguments(variables):
 
 
 def check(arguments, op):
-    """ Check if arguments are valid for given operation 
+    """ Check if arguments are valid for given operation
         Raise Exception if present, else return """
 
     if type(arguments[0]) is tuple:
@@ -133,7 +133,7 @@ def check(arguments, op):
         elif op == "get_next" and scalar:
             raise Exception("scalar not supported for get_next")
         else:
-            return 
+            return
 
 
 class CustomUDPTransport(udp.UdpTransport):
@@ -197,11 +197,11 @@ class SNMP(object):
             d.errback(Exception("Request timed out"))
         return
 
-    
+
     def _receiveCb(self, transportObj, address, wholeMsg):
         """ Receive response PDU and callback deferred with extracted variable bindings """
 
-        
+
         d, transportObj.dObj = transportObj.dObj, None
         err = None
         data = []
@@ -209,7 +209,7 @@ class SNMP(object):
         #Decode request message from self.reqMsg
         reqMsg, _ = decoder.decode(
             self.reqMsg, asn1Spec=self.apiVersion.Message())
-        #Extract request PDU    
+        #Extract request PDU
         reqPDU = self.apiVersion.apiMessage.getPDU(reqMsg)
 
         while wholeMsg:
@@ -246,7 +246,7 @@ class SNMP(object):
 
         d = defer.Deferred()
         d.addCallbacks(extract, lambda x: x.getErrorMessage())
-        self.transportObj.dObj = d 
+        self.transportObj.dObj = d
 
         self.transportObj.sendMessage(msg, self.target)
         reactor.callLater(5, self._timeoutCb)
