@@ -1,4 +1,3 @@
-
 import textfsm
 import spur
 
