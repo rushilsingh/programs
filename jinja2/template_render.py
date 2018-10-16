@@ -1,14 +1,14 @@
 import jinja2
 import json
 """
-Copyright (c) 2009 by the Jinja Team 
+Copyright (c) 2009 by the Jinja Team
 """
 
 # We load templates off the filesystem.
 # For thsi, we construct a FileSystemLoader object.
 
 # The search path can be used to make finding templates by
-# relative paths easier.  
+# relative paths easier.
 
 templateLoader = jinja2.FileSystemLoader( searchpath="/" )
 
@@ -43,13 +43,13 @@ template = templateEnv.get_template( TEMPLATE_FILE )
 templateVars = {
     "properties": {
          "0": "something",
-        "id": "xxxxxx",  
+        "id": "xxxxxx",
         "boolean": True,
         "addresses": [{
             "networkID": "123"
-        }, 
-        {   
-            "networkID": "345"  
+        },
+        {
+            "networkID": "345"
         }]
     }
 }
