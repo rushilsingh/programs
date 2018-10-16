@@ -45,6 +45,6 @@ def download(url):
     d.callback(response)
     return d
 
-reactor.callWhenRunning(get_file, "http://localhost:8888/files/")
 
+reactor.callWhenRunning(get_file, "http://localhost:8888/files/")
 reactor.run()

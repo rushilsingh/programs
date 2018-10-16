@@ -2,6 +2,7 @@ import treq
 from twisted.internet import reactor
 import time
 
+
 URL = "http://localhost:8888/files/"
 FNAME = "downloaded"
 
@@ -16,6 +17,7 @@ def download_file(reactor, url, destination_filename):
 
     return d
 
+
 def end(_):
     print "END TIME:", time.ctime()
     reactor.stop()
@@ -24,6 +26,7 @@ def end(_):
 def main():
     reactor.callWhenRunning(download_file, reactor, URL, FNAME)
     reactor.run()
+
 
 if __name__ == '__main__':
 

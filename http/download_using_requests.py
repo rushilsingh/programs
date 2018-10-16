@@ -1,7 +1,9 @@
 import requests
 from time import time
 
+
 STREAM = False
+
 
 def download_file(url):
 
@@ -9,8 +11,8 @@ def download_file(url):
     local_filename = "downloaded"
     r = requests.get(url, stream=STREAM)
     with open(local_filename, 'wb') as f:
-        for chunk in r.iter_content(chunk_size=1024): 
-            if chunk: 
+        for chunk in r.iter_content(chunk_size=1024):
+            if chunk:
                 f.write(chunk)
 
     duration = time() - start
