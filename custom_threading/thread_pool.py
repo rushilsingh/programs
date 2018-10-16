@@ -1,4 +1,4 @@
-"""    
+"""
 {
     "ThreadName": [func, (args), {kwargs}],
     "AnotherThread": [otherfunc, (otherargs), {other_kw}]
@@ -9,8 +9,8 @@ from time import sleep
 
 
 def func(*args, **kwargs):
-    """ Simple function just prints and returns arguments it was called with 
-        If it is passed a key word argument 'error' with value True, it raises an exception 
+    """ Simple function just prints and returns arguments it was called with
+        If it is passed a key word argument 'error' with value True, it raises an exception
     """
 
     print "I was called with args = {0} and kwargs = {1}".format(args, kwargs)
@@ -41,7 +41,7 @@ class ThreadPool(object):
         """ Either dictionary or function is passed as func_bind.
             Threads are created and stored in a dictionary with their names as keys
         """
-    
+
         self.threads = {}
         if type(func_bind) is dict:
             for tname, func_ref in func_bind.iteritems():

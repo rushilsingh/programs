@@ -5,7 +5,7 @@ class CustomThread(Thread):
 
     def __init__(self, group=None, target=None, name=None, args=(), kwargs=None, verbose=None):
         """ Constructor is always called with keyword args
-            Additional boolean attribute isCompleted initially set to False    
+            Additional boolean attribute isCompleted initially set to False
         """
 
         super(CustomThread, self).__init__(
