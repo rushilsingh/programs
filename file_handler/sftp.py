@@ -21,13 +21,11 @@ class SFTPSession(SSHChannel):
             self, 'subsystem', NS('sftp'), wantReply=True)
         d.addCallbacks(self._cbSFTP)
 
-
     def _cbSFTP(self, result):
         client = FileTransferClient()
         client.makeConnection(self)
         self.dataReceived = client.dataReceived
         self.conn._sftp.callback(client)
-
 
 
 class SFTPConnection(SSHConnection):
