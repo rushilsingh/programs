@@ -40,6 +40,7 @@ specific_parsers = {
     "sysconfig_get": sysconfig_get_parse
 }
 
+
 class SSH(Protocol_Handler):
 
     def __init__(self, endpoint):

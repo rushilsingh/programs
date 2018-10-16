@@ -24,6 +24,7 @@ class APIException_Tests(unittest.TestCase):
         self.assertEquals(e._get_code(message), 500)
         self.assertEquals(e.code, 500)
 
+
 def main():
     unittest.main()
 

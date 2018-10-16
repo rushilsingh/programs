@@ -29,13 +29,10 @@ types = {
     "ObjectName": ObjectName,
     "Unsigned32": Unsigned32
 }
-        if self.version == 1:
-            self.apiVersion = api.protoModules[api.protoVersion1]
-        elif self.version == 2:
-            self.apiVersion = api.protoModules[api.protoVersion2c]
 
 
 version_mapping = {1:api.protoModules[api.protoVersion1] , 2:api.protoModules[api.protoVersion2c}
+
 
 GET = 1
 GET_NEXT = 2

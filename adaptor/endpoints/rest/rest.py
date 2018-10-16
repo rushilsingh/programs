@@ -3,7 +3,9 @@ sys.path.insert(0, "/home/username/programs")
 from adaptor.protocol_handler import Protocol_Handler
 import json
 
+
 CONF = "./conf/rest.conf"
+
 
 class REST(Protocol_Handler):
 
@@ -63,6 +65,3 @@ class REST(Protocol_Handler):
     def delete(self, feature_name, *args):
         raise NotImplementedError(
             "Method not allowed: REST currently supports only GET")
-
-
-
