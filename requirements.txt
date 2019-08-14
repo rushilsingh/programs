@@ -4,7 +4,7 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 PyNaCl==1.1.2
 PyYAML==3.12
-Twisted==17.5.0
+Twisted==19.2.1
 Werkzeug==0.12.2
 argparse==1.2.1
 asn1crypto==0.22.0
