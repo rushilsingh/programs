@@ -43,7 +43,7 @@ six==1.10.0
 spur==0.3.20
 textfsm==0.3.2
 treq==17.7.0
-Twisted==19.2.1
+Twisted==19.7.0
 urllib3==1.24.2
 websocket-client==0.44.0
 Werkzeug==0.15.5
